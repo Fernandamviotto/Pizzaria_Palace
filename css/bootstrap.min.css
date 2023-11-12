@@ -4563,7 +4563,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-lg .navbar-nav .dropdown-menu {
-        position: absolute
+        position: fixed
     }
 
     .navbar-expand-lg .navbar-nav .nav-link {
@@ -4620,7 +4620,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-xl .navbar-nav .dropdown-menu {
-        position: absolute
+        position: fixed
     }
 
     .navbar-expand-xl .navbar-nav .nav-link {
@@ -4677,7 +4677,7 @@ fieldset:disabled .btn {
     }
 
     .navbar-expand-xxl .navbar-nav .dropdown-menu {
-        position: absolute
+        position: fixed
     }
 
     .navbar-expand-xxl .navbar-nav .nav-link {
@@ -4733,7 +4733,7 @@ fieldset:disabled .btn {
 }
 
 .navbar-expand .navbar-nav .dropdown-menu {
-    position: absolute
+    position: fixed
 }
 
 .navbar-expand .navbar-nav .nav-link {
