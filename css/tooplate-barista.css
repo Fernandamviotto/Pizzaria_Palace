@@ -14,9 +14,9 @@ https://www.tooplate.com/view/2137-barista-cafe
   --primary-color: #BC6C25;
   --secondary-color: #10fc2b;
   /*COR DO SOBRE NÓS GIF*/
-  --section-bg-color: #f90909;
+  --section-bg-color: #b11616;
   /* COR DO SOBRE NÓS TIME*/
-  --custom-btn-bg-color: #BC6C25;
+  --custom-btn-bg-color: #10fc2b;
   --custom-btn-bg-hover-color: #DDA15E;
   --dark-color: #000000;
   --p-color: #717275;
@@ -307,7 +307,7 @@ strong {
 }
 
 .custom-border-btn:hover {
-  background: var(--white-color);
+  background: #10fc2b;
   color: var(--secondary-color);
 }
 
@@ -641,7 +641,7 @@ strong {
 
 .about-video-info {
   /*cor imagem sobre nós*/
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(7, 141, 36, 0.458));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35));
   border-radius: var(--border-radius-medium);
   bottom: 0;
   height: auto;
@@ -710,7 +710,7 @@ strong {
 
 .menu-block-wrap {
   /*COR DE FUNDO MENU*/
-  background: rgba(238, 7, 7, 0.65);
+  background: #f9090988;
   border-radius: var(--border-radius-medium);
   padding: 45px;
 }
@@ -724,7 +724,7 @@ strong {
 }
 
 .menu-block small {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.692);
 }
 
 .menu-block strong {
@@ -742,7 +742,7 @@ strong {
 }
 
 .badge {
-  background-color: var(--primary-color);
+  background-color: #000000;
   font-size: 12px;
   position: relative;
   bottom: 4px;
@@ -757,7 +757,7 @@ strong {
   left: -5px;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 10px solid var(--primary-color);
+  border-right: 10px solid #000000;
 }
 
 
@@ -982,7 +982,8 @@ strong {
   SITE FOOTER              
 -----------------------------------------*/
 .site-footer {
-  background-color: var(--primary-color);
+  background-color: var(--section-bg-color);
+  ;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -993,8 +994,7 @@ strong {
 
 .site-footer p,
 .site-footer-link {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: var(--btn-font-size);
+  color: rgba(255, 255, 255, 0.75) font-size: var(--btn-font-size);
 }
 
 .site-footer-link {
