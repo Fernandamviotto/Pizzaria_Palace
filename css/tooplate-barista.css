@@ -741,6 +741,47 @@ strong {
   cursor: pointer;
 }
 
+/*---------------------------------------
+  OUR CARRINHO             
+-----------------------------------------*/
+.menu-carrinho {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.menu-carrinho-wrap {
+  /*COR DE FUNDO MENU*/
+  background: #01010196;
+  border-radius: var(--border-radius-medium);
+  padding: 45px;
+}
+
+.menu-carrinho .border-top {
+  border-top-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.menu-carrinho h6 {
+  color: var(--white-color);
+}
+
+.menu-carrinho small {
+  color: rgba(255, 255, 255, 0.692);
+}
+
+.menu-carrinho strong {
+  color: var(--secondary-color);
+}
+
+.menu-carrinho-image {
+  border-radius: 100%;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+
 .badge {
   background-color: #000000;
   font-size: 12px;
@@ -814,7 +855,7 @@ strong {
   BOOKING SECTION              
 -----------------------------------------*/
 .booking-section {
-  background-image: url('../images/young-female-barista-wear-face-mask-serving-take-away-hot-coffee-paper-cup-consumer-cafe.jpg');
+  background-image: url('https://img.freepik.com/fotos-premium/pizza-em-um-fundo-preto-com-fogo-e-fumaca-closeup_856795-5855.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
