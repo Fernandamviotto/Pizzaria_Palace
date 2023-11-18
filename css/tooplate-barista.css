@@ -899,6 +899,17 @@ strong {
   border-color: transparent;
 }
 
+.button-hover-background {
+  background: var(--secondary-color);
+  color: var(--white-color);
+  border: 5px solid var(--secondary-color);
+  border-radius: 8px;
+  padding: 2px 2px;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
 
 /*---------------------------------------
   CONTACT               
