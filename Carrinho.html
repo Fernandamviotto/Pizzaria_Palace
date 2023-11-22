@@ -89,23 +89,21 @@ Bootstrap 5 HTML CSS Template
         </nav>
 
         <section class="booking-section section-padding d-flex justify-content-center align-items-center">
-            <div class="container">
-                <div class="row align-items-center">
-                    <h1>FAÇA SEU PEDIDO</h1>
-                </div>
+            <div class="row align-items-center"></div>
+            <section class="container normal-section">
+                <h2 class="align-items-center">FAÇA SEU PEDIDO</h2>
 
-                <section>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Pizza</th>
-                                <th>Valor</th>
-                                <th>Quantidade</th>
-                            </tr>
-                        </thead>
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th class="table-head-item first-col">Pizza</th>
+                            <th class="table-head-item second-col">Valor</th>
+                            <th class="table-head-item third-col">Quantidade</th>
+                        </tr>
+                    </thead>
 
-                        <tbody>
-                            <!-- <tr class="cart-product">
+                    <tbody>
+                        <!-- <tr class="cart-product">
                                 <td class="product-identification">
                                     <strong class="cart-product-title">Miniatura</strong>
                                 </td>
@@ -129,20 +127,21 @@ Bootstrap 5 HTML CSS Template
                                     <button type="button" class="remove-product-button">Remover</button>
                                 </td>
                             </tr> -->
-                        </tbody>
+                    </tbody>
 
-                        <tfoot>
-                            <tr>
-                                <td>
-                                    <strong>Total</strong>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </section>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="cart-total-container">
+                                <strong>Total</strong>
+                                <span>R$ 0,00</span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <button type="button" class="purchase-button">Finalizar Pedido</button>
+            </section>
 
-                <div class="col-lg-5 col-12 p-0">
-                </div>
+
             </div>
             </div>
 
@@ -156,84 +155,55 @@ Bootstrap 5 HTML CSS Template
                 <div class="row">
 
                     <div class="col-lg-4 col-12 me-auto">
-                        <em class="text-white d-block mb-4">Where to find us?</em>
+                        <em class="text-white d-block mb-4">Onde estamos?</em>
 
                         <strong class="text-white">
-                            <i class="bi-geo-alt me-2"></i>
-                            Bandra West, Mumbai, Maharashtra 400050, India
+                            <i class="bi-geo-alt me-2"></i>Av. Horácio Raccanello Filho, 5950 - Centro
                         </strong>
 
-                        <ul class="social-icon mt-4">
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link bi-facebook">
-                                </a>
-                            </li>
 
-                            <li class="social-icon-item">
-                                <a href="https://x.com/minthu" target="_new" class="social-icon-link bi-twitter">
-                                </a>
-                            </li>
-
-                            <li class="social-icon-item">
-                                <a href="#" class="social-icon-link bi-whatsapp">
-                                </a>
-                            </li>
-                        </ul>
                     </div>
 
                     <div class="col-lg-3 col-12 mt-4 mb-3 mt-lg-0 mb-lg-0">
-                        <em class="text-white d-block mb-4">Contact</em>
+                        <em class="text-white d-block mb-4">Contato</em>
 
                         <p class="d-flex mb-1">
-                            <strong class="me-2">Phone:</strong>
-                            <a href="tel: 305-240-9671" class="site-footer-link">
-                                (65)
-                                305 2409 671
-                            </a>
-                        </p>
-
-                        <p class="d-flex">
-                            <strong class="me-2">Email:</strong>
-
-                            <a href="mailto:info@yourgmail.com" class="site-footer-link">
-                                hello@barista.co
+                            <strong class="me-2">WhatsApp:</strong>
+                            <a href="tel: (44) 3033 4617" class="site-footer-link">
+                                (44)
+                                3033-4617
                             </a>
                         </p>
                     </div>
 
 
                     <div class="col-lg-5 col-12">
-                        <em class="text-white d-block mb-4">Opening Hours.</em>
+                        <em class="text-white d-block mb-4">Horário de Funcionamento.</em>
 
                         <ul class="opening-hours-list">
                             <li class="d-flex">
-                                Monday - Friday
+                                Terça - Quinta
                                 <span class="underline"></span>
 
-                                <strong>9:00 - 18:00</strong>
+                                <strong>18:30 - 00:00</strong>
                             </li>
 
                             <li class="d-flex">
-                                Saturday
+                                Sexta - Sabado
                                 <span class="underline"></span>
 
-                                <strong>11:00 - 16:30</strong>
+                                <strong>18:30 - 01:00</strong>
                             </li>
 
                             <li class="d-flex">
-                                Sunday
+                                Segunda
                                 <span class="underline"></span>
 
-                                <strong>Closed</strong>
+                                <strong>Fechado</strong>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="col-lg-8 col-12 mt-4">
-                        <p class="copyright-text mb-0">Copyright © Barista Cafe 2048
-                            - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>
-                        </p>
-                    </div>
 
                 </div>
         </footer>

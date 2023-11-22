@@ -26,8 +26,8 @@ https://www.tooplate.com/view/2137-barista-cafe
   --body-font-family: 'Plus Jakarta Sans', sans-serif;
 
   --h1-font-size: 68px;
-  --h2-font-size: 46px;
-  --h3-font-size: 32px;
+  --h2-font-size: 50px;
+  --h3-font-size: 48px;
   --h4-font-size: 28px;
   --h5-font-size: 24px;
   --h6-font-size: 22px;
@@ -61,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--dark-color);
+  color: var(--white-color);
 }
 
 h1,
@@ -78,7 +78,8 @@ h1 {
 }
 
 h2 {
-  font-size: var(--h2-font-size);
+  font-size: var(--h1-font-size);
+  text-align: center
 }
 
 h3 {
@@ -161,7 +162,7 @@ strong {
 }
 
 .back-top-icon {
-  font-size: var(--h2-font-size);
+  font-size: var(--h1-font-size);
 }
 
 
@@ -570,6 +571,10 @@ strong {
   color: var(--white-color);
 }
 
+.hero-section h2 {
+  color: var(--white-color);
+}
+
 .small-text {
   color: var(--secondary-color);
 }
@@ -801,53 +806,54 @@ strong {
   border-right: 10px solid #000000;
 }
 
-
-/*---------------------------------------
-  REVIEWS              
------------------------------------------*/
-.reviews-section {
-  background-color: #7c5c52;
+.table-head-item {
+  text-align: start;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 6px;
+  text-transform: uppercase;
+  text-align: center
 }
 
-.reviews-block {
-  background-color: var(--section-bg-color);
-  border-radius: var(--border-radius-medium);
-  position: relative;
-  overflow: hidden;
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #ffffff;
+  position: center, fixed;
 }
 
-.reviews-block .border-top {
-  border-top-color: rgba(255, 255, 255, 0.35) !important;
+.normal-section + .normal-section {
+  margin-top: 80px;
 }
 
-.reviews-block-image-wrap {
-  background-image: url('../images/mid-section-waitress-wiping-espresso-machine-with-napkin-cafa-c.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding: 30px;
+.cart-total-container {
+  border-top: 2px solid var(--secondary-color);
+  text-align: end;
+  padding: 8px 20px 0 0;
+  font-size: 20px;
+  color: #b11616 ;
 }
 
-.reviews-block-image {
-  border-radius: var(--border-radius-large);
-  width: 65px;
-  height: 65px;
-  object-fit: cover;
-  margin-right: 10px;
+.cart-total-container strong {
+  margin-right: 20px;
 }
 
-.reviews-block-info {
-  padding: 20px 30px;
-}
-
-.reviews-block-info p {
-  font-size: var(--btn-font-size);
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.reviews-group i {
+.purchase-button {
+  display: flex;
+  margin: 24px auto 0;
+  background: var(--secondary-color);
   color: var(--white-color);
+  border: 0px;
+  border-radius: 18px;
+  padding: 16px 20px;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+
+  transition: filter 0.2s;
+}
+
+.purchase-button:hover {
+  filter: brightness(0.8);
 }
 
 
@@ -855,7 +861,7 @@ strong {
   BOOKING SECTION              
 -----------------------------------------*/
 .booking-section {
-  background-image: url('https://img.freepik.com/fotos-premium/pizza-em-um-fundo-preto-com-fogo-e-fumaca-closeup_856795-5855.jpg');
+  background-image: url('https://st4.depositphotos.com/11169808/22933/i/450/depositphotos_229330324-stock-photo-tasty-pepperoni-pizza-and-cooking.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1071,49 +1077,14 @@ strong {
 
 
 /*---------------------------------------
-  SOCIAL ICON               
------------------------------------------*/
-.social-icon {
-  margin: 0;
-  padding: 0;
-}
-
-.social-icon-item {
-  list-style: none;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.social-icon-link {
-  background: var(--primary-color);
-  border-radius: var(--border-radius-large);
-  color: var(--white-color);
-  font-size: var(--menu-font-size);
-  display: block;
-  margin: 0 5px;
-  text-align: center;
-  width: 35px;
-  height: 35px;
-  line-height: 35px;
-  transition: background 0.2s, color 0.2s;
-}
-
-.social-icon-link:hover {
-  background: var(--white-color);
-  color: var(--primary-color);
-}
-
-.social-icon-link span {
-  display: block;
-}
-
-
-/*---------------------------------------
   RESPONSIVE STYLES               
 -----------------------------------------*/
 @media screen and (max-width: 1200px) {
   h1 {
     font-size: 62px;
+  }
+  h2 {
+    font-size: 25px;
   }
 }
 
@@ -1123,7 +1094,7 @@ strong {
   }
 
   h2 {
-    font-size: 36px;
+    font-size: 25px;
   }
 
   h3 {
@@ -1218,7 +1189,7 @@ strong {
   }
 
   h2 {
-    font-size: 28px;
+    font-size: 25px;
   }
 
   h3 {
