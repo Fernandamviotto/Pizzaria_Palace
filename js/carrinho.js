@@ -46,9 +46,10 @@ function checkIfInputIsNull(event) {
 function addProductToCart(event) {
     const button = event.target
     const productInfos = button.parentElement.parentElement
-    const productImage = productInfos.getElementsByClassName("product-image")[0].src
     const productName = productInfos.getElementsByClassName("product-title")[0].innerText
     const productPrice = productInfos.getElementsByClassName("product-price")[0].innerText
+
+    console.log(productInfos)
 
     const productsCartNames = document.getElementsByClassName("cart-product-title")
     for (var i = 0; i < productsCartNames.length; i++) {
@@ -108,6 +109,7 @@ function updateTotal() {
     totalAmount = 0
 
     for (var i = 0; i < cartProducts.length; i++) {
+        //console.log(cartProducts[i])
         const productPrice = cartProducts[i].getElementsByClassName("cart-product-price")[0].innerText.replace("R$", "").replace(",", ".")
         const productQuantity = cartProducts[i].getElementsByClassName("product-qtd-input")[0].value
 

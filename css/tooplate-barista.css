@@ -819,9 +819,10 @@ strong {
   border-collapse: collapse;
   color: #ffffff;
   position: center, fixed;
+  text-align: center;
 }
 
-.normal-section + .normal-section {
+.normal-section+.normal-section {
   margin-top: 80px;
 }
 
@@ -830,7 +831,7 @@ strong {
   text-align: end;
   padding: 8px 20px 0 0;
   font-size: 20px;
-  color: #b11616 ;
+  color: #f9f9f9;
 }
 
 .cart-total-container strong {
@@ -856,14 +857,83 @@ strong {
   filter: brightness(0.8);
 }
 
+.product-identification {
+  display: flex;
+  align-items: center;
+}
+
+.product-identification {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cart-product td {
+  padding: 8px 0;
+}
+
+.cart-product-title {
+  margin-left: 16px;
+  font-size: 18px;
+}
+
+.cart-product-title {
+  margin-top: 6px;
+}
+
+.cart-product-price {
+  font-family: "Raleway", sans-serif;
+}
+
+.product-qtd-input {
+  width: 48px;
+  height: 34px;
+  border-radius: 6px;
+  border: 2px solid var(--blue);
+  text-align: center;
+  background: #eee;
+}
+
+.product-qtd-input {
+  margin: 0 auto;
+}
+
+.remove-product-button {
+  margin-left: 12px;
+  background: #ff0000;
+  color: var(--white);
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 6px;
+
+  transition: filter 0.2s;
+}
+
+.remove-product-button:hover {
+  filter: brightness(0.8);
+}
+
+.remove-product-button {
+  margin: 8px auto 0;
+}
+
+.movie-product {
+  display: flex;
+}
+
+.product-title {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
 
 /*---------------------------------------
   BOOKING SECTION              
 -----------------------------------------*/
 .booking-section {
-  background-image: url('https://st4.depositphotos.com/11169808/22933/i/450/depositphotos_229330324-stock-photo-tasty-pepperoni-pizza-and-cooking.jpg');
+  background-image: url('https://th.bing.com/th/id/OIG.DCYX4CrVzdPU37TVGJRO?w=1024&h=1024&rs=1&pid=ImgDetMain');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 75%;
+  ;
   background-size: cover;
   position: relative;
 }
@@ -1083,6 +1153,7 @@ strong {
   h1 {
     font-size: 62px;
   }
+
   h2 {
     font-size: 25px;
   }
