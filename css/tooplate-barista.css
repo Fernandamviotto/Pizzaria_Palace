@@ -825,8 +825,11 @@ strong {
 }
 
 .product-title {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 2px;
+  font-weight: var(--font-weight-bold);
+  color: #eee;
+
 }
 
 .product-price-container {
@@ -1232,8 +1235,7 @@ strong {
 
 .site-footer p,
 .site-footer-link {
-  color: rgba(255, 255, 255, 0.75) 
-
+  color: rgba(255, 255, 255, 0.75)
 }
 
 .site-footer-link {
