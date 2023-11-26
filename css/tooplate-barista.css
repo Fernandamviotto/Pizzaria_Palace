@@ -408,7 +408,7 @@ strong {
 
 .navbar .dropdown-menu {
   background: var(--white-color);
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.765).175);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.765).175;
   border: 0;
   display: inherit;
   opacity: 0;
@@ -822,13 +822,11 @@ strong {
 
 .movie-product {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .product-title {
   font-size: 20px;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .product-price-container {
@@ -907,7 +905,7 @@ strong {
 
 .cart-product-price {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  color: #ff0000;
+  color: #ffffff;
 }
 
 .product-qtd-input {
@@ -1024,16 +1022,13 @@ strong {
 }
 
 @media (max-width: 470px) {
-  .about-movie-image {
-    width: 160px;
-  }
 
   .main-footer-container {
     flex-direction: column;
   }
 
   .movie-title-medium {
-    margin-bottom: 16px;
+    margin-bottom: 5px;
   }
 }
 
@@ -1237,7 +1232,8 @@ strong {
 
 .site-footer p,
 .site-footer-link {
-  color: rgba(255, 255, 255, 0.75) font-size: var(--btn-font-size);
+  color: rgba(255, 255, 255, 0.75) 
+
 }
 
 .site-footer-link {
