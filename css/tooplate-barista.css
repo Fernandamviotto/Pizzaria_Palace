@@ -79,7 +79,8 @@ h1 {
 
 h2 {
   font-size: var(--h1-font-size);
-  text-align: center
+  text-align: center;
+  color: #0047ab;
 }
 
 h3 {
@@ -806,36 +807,142 @@ strong {
   border-right: 10px solid #000000;
 }
 
-.table-head-item {
-  text-align: start;
-  border-bottom: 1px solid var(--gray);
-  padding-bottom: 6px;
-  text-transform: uppercase;
-  text-align: center
-}
-
-.cart-table {
-  width: 100%;
-  border-collapse: collapse;
-  color: #ffffff;
-  position: center, fixed;
-  text-align: center;
-}
+/*seção carrinho*/
 
 .normal-section+.normal-section {
   margin-top: 80px;
 }
 
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.movie-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-title {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.product-price-container {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.product-price {
+  margin-right: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: bold;
+}
+
+.button-hover-background {
+  background: var(--secondary-color);
+  color: var(--white);
+  border: 3px solid var(--secondary-color);
+  border-radius: 6px;
+  padding: 4px 2px;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+.button-hover-background:hover {
+  background: transparent;
+  color: var(--red);
+}
+
+/* tabela carrinho de compras */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #f50606;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table-head-item {
+  text-align: center;
+  border-bottom: 3px solid var(--secondary-color);
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.second-col,
+.third-col {
+  width: 26%;
+}
+
+.cart-product td {
+  padding: 8px 0;
+}
+
+.product-identification {
+  display: flex;
+  align-items: center;
+}
+
+.cart-product-image {
+  width: 120px;
+  height: 70px;
+}
+
+.cart-product-title {
+  margin-left: 200px;
+  font-size: 18px;
+  color: #eee;
+  text-align: center;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #000000;
+}
+
+.cart-product-price {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #ff0000;
+}
+
+.product-qtd-input {
+  width: 48px;
+  height: 34px;
+  border-radius: 6px;
+  border: 2px solid var(--secondary-color);
+  text-align: center;
+  background: #eee;
+}
+
+.remove-product-button {
+  margin-left: 12px;
+  background: #ff0000;
+  color: var(--white-color);
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 6px;
+
+  transition: filter 0.2s;
+}
+
+.remove-product-button:hover {
+  filter: brightness(0.8);
+}
+
 .cart-total-container {
   border-top: 2px solid var(--secondary-color);
   text-align: end;
-  padding: 8px 20px 0 0;
-  font-size: 20px;
-  color: #f9f9f9;
+  padding: 6px 16px 0 0;
+  font-size: 18px;
 }
 
 .cart-total-container strong {
-  margin-right: 20px;
+  margin-right: 12px;
 }
 
 .purchase-button {
@@ -843,8 +950,8 @@ strong {
   margin: 24px auto 0;
   background: var(--secondary-color);
   color: var(--white-color);
-  border: 0px;
-  border-radius: 18px;
+  border: 0;
+  border-radius: 6px;
   padding: 16px 20px;
   text-transform: uppercase;
   font-size: 20px;
@@ -857,74 +964,78 @@ strong {
   filter: brightness(0.8);
 }
 
-.product-identification {
-  display: flex;
-  align-items: center;
+
+
+/* Responsividade */
+@media (max-width: 584px) {
+  .movie-title-large {
+    font-size: 36px;
+  }
+
+  .schedule-item {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .schedule-item+.schedule-item {
+    margin-top: 12px;
+  }
+
+  .show-date,
+  .show-place {
+    width: 32%;
+    padding: 4px;
+  }
+
+  .show-city {
+    width: 33%;
+    padding: 4px;
+  }
+
+  .buy-ticket-button {
+    width: 60%;
+    margin-top: 12px;
+    padding: 12px 2px;
+  }
+
+
+  .products-container {
+    justify-content: center;
+  }
+
+  .product-identification {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-product-title {
+    margin-top: 6px;
+  }
+
+  .product-qtd-input {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .remove-product-button {
+    display: block;
+    margin: 8px auto 0;
+  }
 }
 
-.product-identification {
-  flex-direction: column;
-  align-items: flex-start;
+@media (max-width: 470px) {
+  .about-movie-image {
+    width: 160px;
+  }
+
+  .main-footer-container {
+    flex-direction: column;
+  }
+
+  .movie-title-medium {
+    margin-bottom: 16px;
+  }
 }
-
-.cart-product td {
-  padding: 8px 0;
-}
-
-.cart-product-title {
-  margin-left: 16px;
-  font-size: 18px;
-}
-
-.cart-product-title {
-  margin-top: 6px;
-}
-
-.cart-product-price {
-  font-family: "Raleway", sans-serif;
-}
-
-.product-qtd-input {
-  width: 48px;
-  height: 34px;
-  border-radius: 6px;
-  border: 2px solid var(--blue);
-  text-align: center;
-  background: #eee;
-}
-
-.product-qtd-input {
-  margin: 0 auto;
-}
-
-.remove-product-button {
-  margin-left: 12px;
-  background: #ff0000;
-  color: var(--white);
-  padding: 10px 8px;
-  border: 0;
-  border-radius: 6px;
-
-  transition: filter 0.2s;
-}
-
-.remove-product-button:hover {
-  filter: brightness(0.8);
-}
-
-.remove-product-button {
-  margin: 8px auto 0;
-}
-
-.movie-product {
-  display: flex;
-}
-
-.product-title {
-  font-size: 20px;
-  margin-bottom: 6px;
-}
-
 
 /*---------------------------------------
   BOOKING SECTION              
@@ -932,7 +1043,7 @@ strong {
 .booking-section {
   background-image: url('https://th.bing.com/th/id/OIG.DCYX4CrVzdPU37TVGJRO?w=1024&h=1024&rs=1&pid=ImgDetMain');
   background-repeat: no-repeat;
-  background-position: 50% 75%;
+  background-position: 50% 99%;
   ;
   background-size: cover;
   position: relative;
@@ -984,6 +1095,10 @@ strong {
   font-weight: bold;
 
   transition: 0.2s;
+}
+
+.button-hover-background:hover {
+  filter: brightness(0.5);
 }
 
 
