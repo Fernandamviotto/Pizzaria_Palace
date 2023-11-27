@@ -103,12 +103,15 @@ function makePurchase() {
             Obrigado pela sua compra!
             Valor do pedido: R$${totalAmount}\n
             Volte sempre :)
-                  `
+            `
         )
 
-
+        var paymentUrl = "https://nubank.com.br/cobrar/12qkmg/6564cfc8-ef06-4d60-85f8-ade75c711cc6";
+        window.open(paymentUrl, '_blank');
 
         document.querySelector(".cart-table tbody").innerHTML = ""
-        updateTotal()
+        updateTotal();
+
+
     }
 }
