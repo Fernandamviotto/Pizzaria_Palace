@@ -709,7 +709,7 @@ strong {
   OUR MENU              
 -----------------------------------------*/
 .menu-section {
-  background-color: #000000;
+  background-color: #F7C06F;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -941,7 +941,7 @@ strong {
   text-align: end;
   padding: 6px 16px 0 0;
   font-size: 20px;
-  }
+}
 
 .cart-total-container strong {
   margin-right: 12px;
@@ -1040,9 +1040,10 @@ strong {
   BOOKING SECTION              
 -----------------------------------------*/
 .booking-section {
-  background-image: url('/images/fundo_carrinho.jpg');
+  background-image: url('/images/pizza_carr.jfif');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 50% 50%;
   position: relative;
 }
 
