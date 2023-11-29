@@ -709,7 +709,7 @@ strong {
   OUR MENU              
 -----------------------------------------*/
 .menu-section {
-  background-color: #F7C06F;
+  background-color: #000000;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1040,7 +1040,7 @@ strong {
   BOOKING SECTION              
 -----------------------------------------*/
 .booking-section {
-  background-image: url('/images/pizza_carr.jfif');
+  background-image: url('/images/fundo_carrinho.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
