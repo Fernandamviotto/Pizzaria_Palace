@@ -110,7 +110,7 @@ function makePurchase() {
         window.open(paymentUrl, '_blank');
 
         document.querySelector(".cart-table tbody").innerHTML = ""
-        updateTotal();
+        uptadeTotal();
 
 
     }
