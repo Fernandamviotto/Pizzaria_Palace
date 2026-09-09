@@ -57,7 +57,6 @@ const styleTag = document.createElement('style')
 styleTag.textContent = modalStyles
 document.head.appendChild(styleTag)
 
-// --- Cadeia de confirmações (cada passo mais absurdo) ---
 const confirmationSteps = [
     {
         emoji: "🍕",
@@ -67,7 +66,7 @@ const confirmationSteps = [
     },
     {
         emoji: "🤔",
-        text: "Pensa bem... Você JÁ comeu hoje?",
+        text: "Pensa bem... Você Já comeu hoje?",
         yes: "Já comi, quero mesmo assim",
         no: "Você tem razão, obrigado"
     },
@@ -91,23 +90,17 @@ const confirmationSteps = [
     }
 ]
 
-function showConfirmationChain(productTitle, productPrice, stepIndex = 0) {
+function showConfirmationChain(productTitle, productPrice, stepIndex = 0, resetFn = null) {
     if (stepIndex >= confirmationSteps.length) {
-        // Chegou ao fim — adiciona ao carrinho de verdade
-        doAddToCart(productTitle, productPrice)
+        doAddToCart(productTitle, productPrice, resetFn)
         return
     }
 
     const step = confirmationSteps[stepIndex]
-    const swapButtons = Math.random() > 0.5  // 50% de chance de embaralhar
-
-    // Sempre embaralha no último passo (passo 4)
-    const forceSwap = stepIndex === 4
-
     const overlay = document.createElement('div')
     overlay.id = 'ux-overlay'
 
-    const swapped = forceSwap || swapButtons
+    const swapped = stepIndex === confirmationSteps.length - 1
 
     overlay.innerHTML = `
       <div id="ux-modal">
@@ -125,14 +118,12 @@ function showConfirmationChain(productTitle, productPrice, stepIndex = 0) {
     btnYes.className = 'btn-yes'
     btnYes.textContent = step.yes
     btnYes.onclick = () => {
-        // Se embaralhado, "yes" é na verdade "no"
         if (swapped) {
             overlay.remove()
-            // Clicou em "sim" mas era "não" — recomeça do zero com mensagem
             showRejection()
         } else {
             overlay.remove()
-            showConfirmationChain(productTitle, productPrice, stepIndex + 1)
+            showConfirmationChain(productTitle, productPrice, stepIndex + 1, resetFn)
         }
     }
 
@@ -140,10 +131,9 @@ function showConfirmationChain(productTitle, productPrice, stepIndex = 0) {
     btnNo.className = 'btn-no'
     btnNo.textContent = step.no
     btnNo.onclick = () => {
-        // Se embaralhado, "no" é na verdade "yes"
         if (swapped) {
             overlay.remove()
-            showConfirmationChain(productTitle, productPrice, stepIndex + 1)
+            showConfirmationChain(productTitle, productPrice, stepIndex + 1, resetFn)
         } else {
             overlay.remove()
             showRejection()
@@ -151,7 +141,7 @@ function showConfirmationChain(productTitle, productPrice, stepIndex = 0) {
     }
 
     if (swapped) {
-        container.appendChild(btnYes)  // aparece primeiro mas funciona como "não"
+        container.appendChild(btnYes) 
         container.appendChild(btnNo)
     } else {
         container.appendChild(btnYes)
@@ -168,7 +158,7 @@ function showRejection() {
         <div class="modal-text">
           Ok, pizza cancelada.<br><br>
           <small style="color:#888">Dica: tente clicar no botão de adicionar ao carrinho novamente. Se conseguir.<br><br>
-          <em>(Obrigado por participar do pior UX do mundo)</em></small>
+          <em>(Obrigado por comprar conosco!)</em></small>
         </div>
         <div class="modal-btns">
           <button class="btn-yes" id="rejection-ok">Tudo bem 😭</button>
@@ -182,15 +172,40 @@ function showRejection() {
 // --- Lógica de fuga do botão ---
 function makeButtonFlee(button) {
     let hasEscaped = false
-    let originalRect = null
+    let originalParent = null
+    let originalNextSibling = null
+    let fleeCount = 0
+    const MAX_FLEES = 5
+
+    button._resetFlee = function () {
+        fleeCount = 0
+        // remove estilos de fuga
+        button.style.position = ''
+        button.style.left     = ''
+        button.style.top      = ''
+        button.style.zIndex   = ''
+        button.style.margin   = ''
+        button.style.cursor   = ''
+        button.classList.remove('flee-btn')
+        hasEscaped = false
+        // devolve o botão ao lugar original no DOM
+        if (originalParent) {
+            originalParent.insertBefore(button, originalNextSibling)
+        }
+    }
 
     button.addEventListener('mouseenter', function () {
+        if (fleeCount >= MAX_FLEES) return
+
         if (!hasEscaped) {
-            // Primeira vez: captura posição real e solta o botão no mundo
-            originalRect = button.getBoundingClientRect()
+            // guarda pai e irmão antes de mover
+            originalParent      = button.parentElement
+            originalNextSibling = button.nextSibling
+
+            const rect = button.getBoundingClientRect()
             button.style.position = 'fixed'
-            button.style.left = originalRect.left + 'px'
-            button.style.top = originalRect.top + 'px'
+            button.style.left = rect.left + 'px'
+            button.style.top  = rect.top  + 'px'
             button.style.zIndex = '9999'
             button.style.margin = '0'
             button.classList.add('flee-btn')
@@ -198,20 +213,42 @@ function makeButtonFlee(button) {
             document.body.appendChild(button)
         }
 
-        // Foge para posição aleatória na tela
-        const padding = 60
-        const maxX = window.innerWidth  - button.offsetWidth  - padding
-        const maxY = window.innerHeight - button.offsetHeight - padding
-        const newX = Math.floor(Math.random() * maxX) + padding / 2
-        const newY = Math.floor(Math.random() * maxY) + padding / 2
+        fleeCount++
 
-        button.style.left = newX + 'px'
-        button.style.top  = newY + 'px'
+        const padX   = 60
+        const padTop = 100 
+        const padBot = 60
+        const maxX = window.innerWidth  - button.offsetWidth  - padX
+        const maxY = window.innerHeight - button.offsetHeight - padBot
+        const newX = Math.floor(Math.random() * (maxX - padX))    + padX
+        const newY = Math.floor(Math.random() * (maxY - padTop))  + padTop
+
+        button.style.left   = newX + 'px'
+        button.style.top    = newY + 'px'
+        button.style.zIndex = '99997'
+
+        if (fleeCount >= MAX_FLEES) {
+            button.classList.remove('flee-btn')
+            button.style.cursor = 'pointer'
+            const hint = document.createElement('div')
+            hint.textContent = 'Ok, ok... pode clicar 😮‍💨'
+            hint.style.cssText = `
+                position: fixed;
+                left: ${button.getBoundingClientRect().left}px;
+                top: ${button.getBoundingClientRect().top - 40}px;
+                background: #333; color: #fff;
+                padding: 6px 12px; border-radius: 6px;
+                font-size: 13px; font-family: sans-serif;
+                z-index: 99999; pointer-events: none;
+                animation: popIn 0.2s ease;
+            `
+            document.body.appendChild(hint)
+            setTimeout(() => hint.remove(), 2500)
+        }
     })
 }
 
-// --- Adicionar ao carrinho (função real, chamada só após todas confirmações) ---
-function doAddToCart(productTitle, productPrice) {
+function doAddToCart(productTitle, productPrice, resetFn = null) {
     const productsCartName = document.getElementsByClassName("cart-product-title")
     for (var i = 0; i < productsCartName.length; i++) {
         if (productsCartName[i].innerText == productTitle) {
@@ -219,6 +256,7 @@ function doAddToCart(productTitle, productPrice) {
                 .getElementsByClassName("product-qtd-input")[0].value++
             uptadeTotal()
             showSuccessToast()
+            if (resetFn) resetFn()
             return
         }
     }
@@ -242,6 +280,7 @@ function doAddToCart(productTitle, productPrice) {
     tableBody.append(newCartProduct)
     uptadeTotal()
     showSuccessToast()
+    if (resetFn) resetFn()
     newCartProduct.getElementsByClassName("product-qtd-input")[0]
         .addEventListener("change", ckeckIfInputIsNull)
     newCartProduct.getElementsByClassName("remove-product-button")[0]
@@ -255,9 +294,9 @@ function showSuccessToast() {
         background:#27ae60; color:#fff; padding:14px 28px; border-radius:8px;
         font-size:15px; z-index:99999; font-family:sans-serif;
         box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        animation: popIn 0.2s ease;
+        animation: popIn 0.60s ease;
     `
-    toast.textContent = '🍕 Pizza adicionada! Só demorou 5 confirmações...'
+    toast.textContent = '🍕 Pizza adicionada! Realize o pagamento e nos deixe uma avaliação.'
     document.body.appendChild(toast)
     setTimeout(() => toast.remove(), 3000)
 }
@@ -294,7 +333,8 @@ function ready() {
             showConfirmationChain(
                 this.dataset.title,
                 this.dataset.price,
-                0
+                0,
+                this._resetFlee
             )
         })
     }
